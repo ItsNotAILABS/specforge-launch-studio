@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="SpecForge Launch Studio static preview" />
+    <title>SpecForge Launch Studio</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <aside class="rail">
+        <div class="brand"><span>SF</span><strong>SpecForge</strong><small>Launch Studio</small></div>
+        <button class="nav active" data-view="home">Home</button>
+        <button class="nav" data-view="builder">Spec Builder</button>
+        <button class="nav" data-view="portfolio">Portfolio</button>
+        <button class="nav" data-view="marketplace">Marketplace</button>
+        <button class="nav" data-view="launcher">Launcher</button>
+        <div class="rail-card"><small>Launch score</small><strong id="rail-score">82%</strong><span>click-only spec workspace</span></div>
+      </aside>
+      <section class="workspace">
+        <header class="hero">
+          <div>
+            <p>Builder / Launcher desktop product</p>
+            <h1 id="view-title">Professional app specification studio</h1>
+            <span>Draft specs, manage projects, clone marketplace apps, and prepare launches from one click-only surface.</span>
+          </div>
+          <div class="hero-actions">
+            <button id="exportBtn" class="primary">Generate 10-section export</button>
+            <button id="cloneBtn">Start clone setup</button>
+          </div>
+        </header>
+        <section class="metrics">
+          <article><small>Current mode</small><strong id="mode">Builder</strong><span>Switch between creating and publishing</span></article>
+          <article><small>Spec sections</small><strong>10</strong><span>Structured export package</span></article>
+          <article><small>Projects</small><strong>6</strong><span>Portfolio workspace</span></article>
+          <article><small>Advisor price</small><strong id="price">$79</strong><span>Formula-driven publish flow</span></article>
+        </section>
+        <section id="home" class="view active grid two"></section>
+        <section id="builder" class="view grid three"></section>
+        <section id="portfolio" class="view"></section>
+        <section id="marketplace" class="view grid two"></section>
+        <section id="launcher" class="view grid three"></section>
+      </section>
+    </main>
+    <script type="module" src="/src/app.js"></script>
+  </body>
+</html>
