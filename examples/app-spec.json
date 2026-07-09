@@ -1,0 +1,20 @@
+{
+  "project": {
+    "name": "NOVA Builder Marketplace",
+    "app_type": "Marketplace",
+    "launch_mode": "Marketplace clone",
+    "pricing_model": "Subscription"
+  },
+  "answers": {
+    "overview": "A marketplace where creators publish launch-ready NOVA app templates with guided clone setup.",
+    "audience": "Builders, agencies, and business operators who need complete app infrastructure without starting from scratch.",
+    "brand": "Professional, precise, enterprise-ready, with NOVA visual identity and creator trust signals.",
+    "content": "Template descriptions, creator profiles, setup instructions, proof badges, screenshots, and pricing notes.",
+    "features": "Portfolio dashboard, marketplace listings, clone flow, creator profiles, pricing advisor, post-clone onboarding.",
+    "data": "Projects, templates, creators, clone events, pricing inputs, proof receipts, onboarding state.",
+    "workflow": "User browses templates, clones one, completes six onboarding steps, reviews price, then goes live.",
+    "admin": "Admins review templates, verify claims, manage featured listings, and monitor launch readiness.",
+    "launch": "Launch with three verified templates, creator profiles, pricing advisor, and support loop.",
+    "proof": "Every template needs screenshots, setup checklist, known limits, and proof receipt before publishing."
+  }
+}
