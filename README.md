@@ -5,10 +5,23 @@
 ![Frontend](https://img.shields.io/badge/frontend-Vite%20React-0b7285)
 ![Python](https://img.shields.io/badge/python-stdlib%20API-3776ab)
 ![Launch](https://img.shields.io/badge/launcher-onboarding%206%20steps-2f9e44)
+![CI](https://img.shields.io/badge/CI-smoke%20%2B%20benchmarks-success)
+
+![SpecForge Launch Studio](assets/specforge-launch-studio.svg)
 
 Desktop-style frontend and API platform for visually designing professional app specifications with click-only choices, managing project work, browsing clone-ready apps, and preparing Launcher publish flows.
 
 SpecForge is the product-spec side of NOVA Build: it turns app ideas into a complete 10-section specification, then hands the launch package to Mercatus Launch Studio for pricing and go-live support.
+
+## Human Flow
+
+1. Pick app type, launch mode, pricing model, and integrations.
+2. Complete all 10 spec sections.
+3. Validate missing sections.
+4. Export Markdown package.
+5. Hand the result to Mercatus for pricing and go-live.
+
+See `docs/HUMAN_AI_WORKFLOWS.md` for human and AI worker flows.
 
 ## Product Surface
 
@@ -21,15 +34,6 @@ SpecForge is the product-spec side of NOVA Build: it turns app ideas into a comp
 - Pricing handoff to Mercatus Launch Studio
 - API export surface for local AIs and external builders
 
-## Stack
-
-- Vite
-- React
-- TypeScript
-- CSS custom properties
-- Python stdlib API server
-- GitHub Actions verification path
-
 ## Frontend Run
 
 ```bash
@@ -41,20 +45,18 @@ Open `http://127.0.0.1:5190`.
 
 ## Static Preview
 
-If npm install is not available in an environment:
-
 ```bash
 python3 launch_static.py
 ```
 
 ## Backend Quick Start
 
-Validate the spec section model:
-
 ```bash
 python tools/specforgectl.py validate-sections
 python tools/specforgectl.py sections
 python tools/specforgectl.py validate-project examples/app-spec.json
+python tests/smoke_test.py
+python benchmarks/benchmark_exports.py
 ```
 
 Run the API:
@@ -81,6 +83,10 @@ curl -s -X POST http://127.0.0.1:8790/exports -H 'content-type: application/json
 | API server | `server/specforge_launch_studio.py` |
 | CLI | `tools/specforgectl.py` |
 | Example app spec | `examples/app-spec.json` |
+| Smoke tests | `tests/smoke_test.py` |
+| Benchmarks | `benchmarks/benchmark_exports.py` |
+| Backend CI | `.github/workflows/backend-ci.yml` |
+| Workflows | `docs/HUMAN_AI_WORKFLOWS.md` |
 
 ## Ten Export Sections
 
@@ -91,11 +97,6 @@ Overview, Audience, Brand, Content, Features, Data and Integrations, User Workfl
 ```bash
 npm run verify
 npm run build
-```
-
-Backend verification:
-
-```bash
 python tools/specforgectl.py validate-sections
 python tools/specforgectl.py validate-project examples/app-spec.json
 ```
@@ -110,3 +111,4 @@ App specification builder, click-only app spec, launch studio, app marketplace b
 - Export DOCX/PDF packages.
 - Connect Mercatus pricing API.
 - Add visual API integration to the React frontend.
+- Add CI status badges after first workflow run.
