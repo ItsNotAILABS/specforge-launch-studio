@@ -1,0 +1,26 @@
+{
+  "schema": "nova.specforge_launch_studio.manifest.v1",
+  "name": "SpecForge Launch Studio",
+  "authority": "ItsNotAILABS / NOVA",
+  "role": "Click-only professional app specification builder and 10-section export studio for builders and teams.",
+  "surfaces": [
+    "project portfolio",
+    "project workspace",
+    "click-only spec builder",
+    "10-section export",
+    "launcher clone onboarding",
+    "pricing handoff to Mercatus"
+  ],
+  "proof_gates": [
+    "required sections complete",
+    "missing choices reported",
+    "export generated",
+    "launch handoff available"
+  ],
+  "next_gates": [
+    "add browser UI",
+    "persist projects",
+    "export DOCX/PDF",
+    "connect Mercatus launch package API"
+  ]
+}
