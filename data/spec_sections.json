@@ -1,0 +1,22 @@
+{
+  "schema": "nova.specforge.sections.v1",
+  "sections": [
+    {"id": "overview", "name": "Overview", "required": true},
+    {"id": "audience", "name": "Audience", "required": true},
+    {"id": "brand", "name": "Brand", "required": true},
+    {"id": "content", "name": "Content", "required": true},
+    {"id": "features", "name": "Features", "required": true},
+    {"id": "data", "name": "Data and Integrations", "required": true},
+    {"id": "workflow", "name": "User Workflow", "required": true},
+    {"id": "admin", "name": "Admin and Operations", "required": true},
+    {"id": "launch", "name": "Launch Plan", "required": true},
+    {"id": "proof", "name": "Proof and Acceptance", "required": true}
+  ],
+  "click_choices": {
+    "app_type": ["SaaS dashboard", "Marketplace", "Internal ops tool", "Customer portal", "AI workbench"],
+    "launch_mode": ["Builder", "Launcher", "Marketplace clone", "Client delivery"],
+    "pricing_model": ["Free", "One-time", "Subscription", "Usage-based", "Custom quote"],
+    "integrations": ["GitHub", "MCP", "Stripe", "Google Drive", "Slack", "Email", "Custom API"]
+  },
+  "launcher_onboarding": ["Brand", "Content", "Features", "Updates", "Go Live", "Customer Success"]
+}
