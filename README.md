@@ -10,6 +10,9 @@ The original SpecForge surface is still inside the product: the builder creates 
 - Multi-language coding sandbox
 - Live Python API server
 - Local preview server
+- MCP-style Python inner server
+- AI provider bridge
+- Expo Go mobile capsule generator
 - Web/API/terminal/notebook/artifact preview model
 - Capsule manifest system
 - Web worker capsule scaffolds
@@ -88,6 +91,41 @@ API server: `http://127.0.0.1:8764`
 
 Preview server: `http://127.0.0.1:8765`
 
+## MCP Inner Server and AI Bridge
+
+Run the local JSON-RPC tool server:
+
+```bash
+python -m capsule_studio.mcp.server
+```
+
+Offline-safe AI mode:
+
+```bash
+CAPSULE_AI_PROVIDER=local python -m capsule_studio.mcp.server
+```
+
+OpenAI-compatible mode:
+
+```bash
+CAPSULE_AI_PROVIDER=openai OPENAI_API_KEY=... python -m capsule_studio.mcp.server
+```
+
+The MCP-style server exposes tools for runtime listing, session creation, file writing, session run, manifest generation, deploy plans, AI code generation, AI review, and WASM planning.
+
+## Expo Go Mobile Capsules
+
+Generate a mobile capsule users can preview with Expo Go:
+
+```bash
+python -m capsule_studio.cli expo --name "Capsule Mobile App" --slug capsule-mobile-app --out .capsule_studio/expo/capsule-mobile-app
+cd .capsule_studio/expo/capsule-mobile-app
+npm install
+npm run start
+```
+
+Scan the QR code with Expo Go to preview the app on a phone.
+
 ## Static Preview
 
 If npm install is not available in an environment:
@@ -158,6 +196,7 @@ Native files:
 
 ## Documentation
 
+- `docs/mcp-ai-expo-bridge.md`
 - `docs/python-capsule-runtime.md`
 - `docs/capsule-studio-platform.md`
 - `docs/capsule-sandbox.md`
