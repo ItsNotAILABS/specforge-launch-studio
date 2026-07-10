@@ -1,0 +1,24 @@
+name: Verify Capsule Studio
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  capsule-studio:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify capsule examples
+        run: python tools/capsule_studio.py verify
+      - name: Generate Python capsule manifest
+        run: python tools/capsule_studio.py make python
+      - name: Generate React capsule manifest
+        run: python tools/capsule_studio.py make react
+      - name: Generate C++ capsule manifest
+        run: python tools/capsule_studio.py make cpp
