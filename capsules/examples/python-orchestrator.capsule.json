@@ -1,0 +1,22 @@
+{
+  "id": "python-orchestrator",
+  "name": "Python Orchestrator Capsule",
+  "version": "0.1.0",
+  "runtime": {
+    "kind": "python",
+    "entrypoint": "tools/capsule_studio.py",
+    "server": true,
+    "preview": "terminal"
+  },
+  "languages": ["Python", "JSON", "Markdown", "Shell"],
+  "targets": ["wasi", "native", "github"],
+  "workers": [
+    { "name": "Session Server", "role": "create coding session manifests", "persistent": true },
+    { "name": "Research Report Worker", "role": "generate reports and architecture summaries", "persistent": false },
+    { "name": "GitHub Publisher Worker", "role": "prepare repo deploy handoff", "persistent": false }
+  ],
+  "deploy": {
+    "mode": "agent",
+    "destination": "github://ItsNotAILABS/specforge-launch-studio"
+  }
+}
