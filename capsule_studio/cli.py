@@ -4,6 +4,7 @@ import argparse
 import json
 from pathlib import Path
 
+from .expo import ExpoApp, create_expo_capsule
 from .orchestrator import CapsuleOrchestrator
 from .preview import run_preview_server
 from .server import run_api_server
@@ -42,6 +43,11 @@ def main() -> int:
     wasm.add_argument("source")
     wasm.add_argument("--kind", choices=["c", "cpp"], default="cpp")
 
+    expo = sub.add_parser("expo")
+    expo.add_argument("--name", default="Capsule Mobile App")
+    expo.add_argument("--slug", default="capsule-mobile-app")
+    expo.add_argument("--out", default=".capsule_studio/expo/capsule-mobile-app")
+
     args = parser.parse_args()
     orchestrator = CapsuleOrchestrator()
 
@@ -75,6 +81,11 @@ def main() -> int:
         source = Path(args.source)
         plan = builder.plan_c(source) if args.kind == "c" else builder.plan_cpp(source)
         print_json(plan.to_dict())
+        return 0
+
+    if args.command == "expo":
+        files = create_expo_capsule(Path(args.out), ExpoApp(name=args.name, slug=args.slug))
+        print_json({"ok": True, "files": files, "run": ["cd " + args.out, "npm install", "npm run start", "scan QR with Expo Go"]})
         return 0
 
     return 1
