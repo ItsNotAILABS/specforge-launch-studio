@@ -1,0 +1,21 @@
+{
+  "id": "cpp-wasm-core",
+  "name": "C++ WASM Core Capsule",
+  "version": "0.1.0",
+  "runtime": {
+    "kind": "cpp",
+    "entrypoint": "native/specforge_core.cpp",
+    "server": false,
+    "preview": "terminal"
+  },
+  "languages": ["C", "C++", "WAT"],
+  "targets": ["wasm", "web-worker", "github"],
+  "workers": [
+    { "name": "WASM Build Worker", "role": "compile native kernels into browser-safe modules", "persistent": false },
+    { "name": "Capsule Session Worker", "role": "package native build outputs", "persistent": false }
+  ],
+  "deploy": {
+    "mode": "web-worker",
+    "destination": "workers/specforge_core.worker"
+  }
+}
