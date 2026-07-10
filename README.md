@@ -1,6 +1,6 @@
 # SpecForge Launch Studio
 
-Desktop-style frontend for visually designing professional app specifications with click-only choices, managing project work, browsing clone-ready apps, and preparing Launcher publish flows.
+Desktop-style frontend for visually designing professional app specifications with click-only choices, managing project work, browsing clone-ready apps, preparing Launcher publish flows, and running multi-language coding sessions that can be packaged into capsules.
 
 ## Stack
 
@@ -9,6 +9,7 @@ Desktop-style frontend for visually designing professional app specifications wi
 - TypeScript
 - CSS custom properties
 - Native C/C++ interface
+- Multi-language capsule sandbox surface
 - GitHub Actions verification
 
 ## Product Surface
@@ -21,6 +22,7 @@ Desktop-style frontend for visually designing professional app specifications wi
 - 6-step Launcher onboarding: Brand, Audience, Content, Features, Updates, Go Live
 - Pricing advisor formula: `base + complexity + support + market`
 - Native C/C++ scoring and export interface for local AIs, CLI tools, Python bindings, Node addons, or future WebAssembly builds
+- Multi-language sandbox for Python, MATLAB/Octave, Julia, Java, C++, C, Rust, TypeScript, HTML/CSS/JS, R, Go, and Shell runtime lanes
 
 ## Run
 
@@ -38,6 +40,21 @@ If npm install is not available in an environment:
 ```bash
 python3 launch_static.py
 ```
+
+## Sandbox Capsule System
+
+The Sandbox view defines the live coding session model:
+
+- select a language lane
+- start the session server
+- run or compile the code
+- preview web/API/terminal/notebook/artifact output
+- build a capsule manifest
+- publish generated files to GitHub
+
+The first implementation is a front-end product contract and orchestration surface. It separates `ready`, `planned`, and `requires-toolchain` lanes so future local runtimes can implement real compilers and WASM/WASI bridges without pretending unsupported toolchains are active.
+
+See `docs/capsule-sandbox.md`.
 
 ## Native C/C++ Interface
 
