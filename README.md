@@ -8,7 +8,8 @@ The original SpecForge surface is still inside the product: the builder creates 
 
 - Visual app specification builder
 - Multi-language coding sandbox
-- Live session server model
+- Live Python API server
+- Local preview server
 - Web/API/terminal/notebook/artifact preview model
 - Capsule manifest system
 - Web worker capsule scaffolds
@@ -58,6 +59,34 @@ npm run dev
 ```
 
 Open `http://127.0.0.1:5190`.
+
+## Run the Python Capsule Runtime
+
+Start the local API server:
+
+```bash
+python -m capsule_studio.cli api
+```
+
+Start the preview server:
+
+```bash
+python -m capsule_studio.cli preview
+```
+
+Create and run a capsule session:
+
+```bash
+python -m capsule_studio.cli runtimes
+python -m capsule_studio.cli create python --name demo-python
+python -m capsule_studio.cli run demo-python
+python -m capsule_studio.cli manifest demo-python
+python -m capsule_studio.cli wasm-plan native/specforge_core.cpp --kind cpp
+```
+
+API server: `http://127.0.0.1:8764`
+
+Preview server: `http://127.0.0.1:8765`
 
 ## Static Preview
 
@@ -129,6 +158,7 @@ Native files:
 
 ## Documentation
 
+- `docs/python-capsule-runtime.md`
 - `docs/capsule-studio-platform.md`
 - `docs/capsule-sandbox.md`
 - `docs/product-surface.md`
@@ -141,6 +171,7 @@ Native files:
 npm run verify
 npm run build
 python tools/capsule_studio.py verify
+python -m pytest tests/test_capsule_studio.py
 ```
 
-GitHub Actions verifies the frontend, the native C++ interface, and the Capsule Studio manifest utility.
+GitHub Actions verifies the frontend, the native C++ interface, the Capsule Studio manifest utility, and the Python capsule runtime.
