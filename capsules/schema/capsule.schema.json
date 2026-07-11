@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Capsule Studio Capsule Manifest",
+  "type": "object",
+  "required": ["id", "name", "version", "runtime", "languages", "targets", "workers", "deploy"],
+  "properties": {
+    "id": { "type": "string" },
+    "name": { "type": "string" },
+    "version": { "type": "string" },
+    "runtime": {
+      "type": "object",
+      "required": ["kind", "entrypoint"],
+      "properties": {
+        "kind": { "type": "string", "enum": ["python", "julia", "node", "react", "cpp", "java", "html", "hybrid"] },
+        "entrypoint": { "type": "string" },
+        "server": { "type": "boolean" },
+        "preview": { "type": "string", "enum": ["web", "api", "terminal", "notebook", "artifact"] }
+      }
+    },
+    "languages": { "type": "array", "items": { "type": "string" } },
+    "targets": { "type": "array", "items": { "type": "string", "enum": ["web-worker", "wasm", "wasi", "native", "node", "browser", "github"] } },
+    "workers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "role"],
+        "properties": {
+          "name": { "type": "string" },
+          "role": { "type": "string" },
+          "persistent": { "type": "boolean" }
+        }
+      }
+    },
+    "deploy": {
+      "type": "object",
+      "required": ["mode", "destination"],
+      "properties": {
+        "mode": { "type": "string", "enum": ["agent", "web-worker", "app", "service", "report-suite"] },
+        "destination": { "type": "string" }
+      }
+    }
+  }
+}

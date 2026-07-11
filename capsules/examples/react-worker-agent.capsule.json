@@ -1,0 +1,21 @@
+{
+  "id": "react-worker-agent",
+  "name": "React Worker Agent Capsule",
+  "version": "0.1.0",
+  "runtime": {
+    "kind": "react",
+    "entrypoint": "src/App.tsx",
+    "server": true,
+    "preview": "web"
+  },
+  "languages": ["TypeScript", "React", "CSS", "HTML"],
+  "targets": ["browser", "web-worker", "github"],
+  "workers": [
+    { "name": "capsule.worker", "role": "score and manifest capsule payloads", "persistent": false },
+    { "name": "preview.worker", "role": "prepare preview and deploy metadata", "persistent": false }
+  ],
+  "deploy": {
+    "mode": "app",
+    "destination": "github://ItsNotAILABS/specforge-launch-studio"
+  }
+}

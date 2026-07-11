@@ -1,0 +1,23 @@
+name: Verify Native Interface
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  native:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build native CLI
+        run: c++ -std=c++17 native/specforge_core.cpp native/specforge_cli.cpp -o native/specforge_cli
+      - name: Build native tests
+        run: c++ -std=c++17 native/specforge_core.cpp native/tests/specforge_native_tests.cpp -o native/specforge_native_tests
+      - name: Run native score command
+        run: native/specforge_cli score
+      - name: Run native export command
+        run: native/specforge_cli export
+      - name: Run native tests
+        run: native/specforge_native_tests
