@@ -1,0 +1,23 @@
+name: SpecForge Backend CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  backend-smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate section model
+        run: python tools/specforgectl.py validate-sections
+      - name: Validate example project
+        run: python tools/specforgectl.py validate-project examples/app-spec.json
+      - name: Run smoke tests
+        run: python tests/smoke_test.py
+      - name: Run export benchmark
+        run: python benchmarks/benchmark_exports.py

@@ -1,5 +1,27 @@
 # Capsule Studio
 
+![Status](https://img.shields.io/badge/status-platform%20buildout-blue)
+![Spec Sections](https://img.shields.io/badge/spec%20sections-10-6f42c1)
+![Frontend](https://img.shields.io/badge/frontend-Vite%20React-0b7285)
+![Python](https://img.shields.io/badge/python-stdlib%20API-3776ab)
+![Launch](https://img.shields.io/badge/launcher-onboarding%206%20steps-2f9e44)
+![CI](https://img.shields.io/badge/CI-smoke%20%2B%20benchmarks-success)
+
+![SpecForge Launch Studio](assets/specforge-launch-studio.svg)
+
+Desktop-style frontend and API platform for visually designing professional app specifications with click-only choices, managing project work, browsing clone-ready apps, and preparing Launcher publish flows.
+
+SpecForge is the product-spec side of NOVA Build: it turns app ideas into a complete 10-section specification, then hands the launch package to Mercatus Launch Studio for pricing and go-live support.
+
+## Human Flow
+
+1. Pick app type, launch mode, pricing model, and integrations.
+2. Complete all 10 spec sections.
+3. Validate missing sections.
+4. Export Markdown package.
+5. Hand the result to Mercatus for pricing and go-live.
+
+See `docs/HUMAN_AI_WORKFLOWS.md` for human and AI worker flows.
 Capsule Studio is a capsule-first builder, launcher, sandbox, and deployment platform. It turns app specs, code sessions, native modules, web workers, previews, reports, and GitHub publishing into one operating surface.
 
 The original SpecForge surface is still inside the product: the builder creates professional app specifications, the launcher packages clone-ready apps, and the sandbox turns coding sessions into deployable capsules.
@@ -127,8 +149,6 @@ npm run start
 Scan the QR code with Expo Go to preview the app on a phone.
 
 ## Static Preview
-
-If npm install is not available in an environment:
 
 ```bash
 python3 launch_static.py
